@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extended Chapter 3 Quiz - 100+ Questions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: #0f0f23;
+            position: relative;
+        }
+
+        /* Animated Beams Background */
+        .beams-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
+        }
+
+        .beam {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+            animation: moveBeam 8s linear infinite;
+        }
+
+        .beam:nth-child(1) {
+            top: 20%;
+            left: -100%;
+            width: 200%;
+            height: 2px;
+            animation-delay: 0s;
+        }
+
+        .beam:nth-child(2) {
+            top: 40%;
+            left: -100%;
+            width: 200%;
+            height: 1px;
+            animation-delay: 2s;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), transparent);
+        }
+
+        .beam:nth-child(3) {
+            top: 60%;
+            left: -100%;
+            width: 200%;
+            height: 3px;
+            animation-delay: 4s;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.3), transparent);
+        }
+
+        .beam:nth-child(4) {
+            top: 80%;
+            left: -100%;
+            width: 200%;
+            height: 1px;
+            animation-delay: 6s;
+            background: linear-gradient(90deg, transparent, rgba(245, 101, 101, 0.3), transparent);
+        }
+
+        @keyframes moveBeam {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Simple Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 20px;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            margin-bottom: 40px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        /* Gooey Navigation */
+        .gooey-nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .nav-container {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-item {
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-item.active {
+            color: white;
+            font-weight: 600;
+        }
+
+        .gooey-blob {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 120px;
+            height: 40px;
+            background: linear-gradient(45deg, #8b5cf6, #3b82f6);
+            border-radius: 25px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1;
+            filter: blur(1px);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #8b5cf6, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 8px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8b5cf6, #3b82f6, #10b981);
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .question-container {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .question-container:hover {
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .question-number {
+            background: linear-gradient(45deg, #8b5cf6, #3b82f6);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .question-type {
+            background: linear-gradient(45deg, #10b981, #059669);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .question-text {
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .options {
+            margin-bottom: 20px;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            font-size: 1em;
+            backdrop-filter: blur(5px);
+        }
+
+        .option:hover {
+            border-color: rgba(139, 92, 246, 0.5);
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            border-color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.2);
+            color: white;
+        }
+
+        .option.correct {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .option.incorrect {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .true-false-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .true-false-option {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: bold;
+            backdrop-filter: blur(5px);
+        }
+
+        .true-false-option:hover {
+            border-color: rgba(139, 92, 246, 0.5);
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .check-answer-btn {
+            background: linear-gradient(45deg, #8b5cf6, #3b82f6);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .check-answer-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .check-answer-btn:disabled {
+            background: rgba(255, 255, 255, 0.1);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .feedback.correct {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #10b981;
+        }
+
+        .feedback.incorrect {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+
+        .feedback-icon {
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            font-style: italic;
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        .final-score {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 20px;
+            margin-top: 40px;
+            display: none;
+            backdrop-filter: blur(20px);
+        }
+
+        .score-number {
+            font-size: 5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #8b5cf6, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .score-message {
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .reset-btn {
+            background: linear-gradient(45deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .reset-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .share-btn {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-icon {
+            font-size: 1.2em;
+        }
+
+        .difficulty-indicator {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-left: 10px;
+        }
+
+        .difficulty-easy { 
+            background: rgba(16, 185, 129, 0.2); 
+            color: #10b981; 
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .difficulty-medium { 
+            background: rgba(245, 158, 11, 0.2); 
+            color: #f59e0b; 
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        .difficulty-hard { 
+            background: rgba(239, 68, 68, 0.2); 
+            color: #ef4444; 
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 20px;
+            }
+            
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            
+            .nav-item {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .question-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .reset-btn, .share-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Beams Background -->
+    <div class="beams-background">
+        <div class="beam"></div>
+        <div class="beam"></div>
+        <div class="beam"></div>
+        <div class="beam"></div>
+    </div>
+
+    <!-- Simple Header -->
+    <div class="header">
+        <h1 class="main-title">Chapter 3 Quiz</h1>
+    </div>
+
+    <div class="container">
+        <div class="subtitle">Comprehensive Relational Model Assessment - 100+ Questions</div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="totalQuestions">100</div>
+                <div class="stat-label">Total Questions</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="answeredQuestions">0</div>
+                <div class="stat-label">Answered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="correctAnswers">0</div>
+                <div class="stat-label">Correct</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="accuracy">0%</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="timeSpent">0:00</div>
+                <div class="stat-label">Time Spent</div>
+            </div>
+        </div>
+        
+        <!-- Gooey Navigation -->
+        <div class="gooey-nav">
+            <div class="nav-container">
+                <div class="gooey-blob"></div>
+                <button class="nav-item active" onclick="filterQuestions('all', this)">All Questions</button>
+                <button class="nav-item" onclick="filterQuestions('basic', this)">Basic Concepts</button>
+                <button class="nav-item" onclick="filterQuestions('characteristics', this)">Characteristics</button>
+                <button class="nav-item" onclick="filterQuestions('advanced', this)">Advanced Topics</button>
+            </div>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        
+        <div id="questionsContainer"></div>
+        
+        <div class="final-score" id="finalScore">
+            <div class="score-number" id="finalScoreNumber"></div>
+            <div class="score-message" id="scoreMessage"></div>
+            <div class="action-buttons">
+                <button class="reset-btn" onclick="resetQuiz()">Start Over</button>
+                <button class="share-btn" onclick="shareOnWhatsApp()">
+                    <span class="whatsapp-icon">📱</span>
+                    Share on WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Extended question bank with 100+ questions
+        const questions = [
+            // Basic Concepts (1-25)
+            {
+                id: 1,
+                type: "multiple",
+                category: "basic",
+                difficulty: "easy",
+                question: "Who developed the relational model?",
+                options: ["Edgar F. Codd", "Larry Ellison", "Michael Stonebraker", "Jim Gray"],
+                correct: 0,
+                explanation: "Edgar F. Codd developed the relational model in 1970 while working at IBM Research."
+            },
+            {
+                id: 2,
+                type: "multiple",
+                category: "basic",
+                difficulty: "easy",
+                question: "In which year was the relational model introduced?",
+                options: ["1968", "1970", "1972", "1975"],
+                correct: 1,
+                explanation: "The relational model was introduced by Edgar F. Codd in 1970."
+            },
+            {
+                id: 3,
+                type: "true_false",
+                category: "basic",
+                difficulty: "easy",
+                statement: "The relational model is based on mathematical set theory.",
+                correct: true,
+                explanation: "True. The relational model is firmly grounded in mathematical set theory and predicate logic."
+            },
+            {
+                id: 4,
+                type: "multiple",
+                category: "basic",
+                difficulty: "easy",
+                question: "What is a relation in the relational model?",
+                options: ["A connection between tables", "A mathematical set of tuples", "A foreign key", "A database query"],
+                correct: 1,
+                explanation: "A relation is mathematically defined as a set of tuples with the same attributes."
+            },
+            {
+                id: 5,
+                type: "multiple",
+                category: "basic",
+                difficulty: "easy",
+                question: "What is a tuple in relational terminology?",
+                options: ["A column", "A row", "A table", "A database"],
+                correct: 1,
+                explanation: "A tuple is a row in a relational table, representing a single record."
+            },
+            {
+                id: 6,
+                type: "multiple",
+                category: "basic",
+                difficulty: "easy",
+                question: "What is an attribute in the relational model?",
+                options: ["A row", "A column", "A table", "A relationship"],
+                correct: 1,
+                explanation: "An attribute is a column in a relational table, representing a property of an entity."
+            },
+            {
+                id: 7,
+                type: "true_false",
+                category: "basic",
+                difficulty: "easy",
+                statement: "In the relational model, data is stored in tables.",
+                correct: true,
+                explanation: "True. The relational model stores data in tables (relations)."
+            },
+            {
+                id: 8,
+                type: "multiple",
+                category: "basic",
+                difficulty: "medium",
+                question: "What is the degree of a relation?",
+                options: ["Number of rows", "Number of columns", "Number of tables", "Number of relationships"],
+                correct: 1,
+                explanation: "The degree of a relation is the number of attributes (columns) it contains."
+            },
+            {
+                id: 9,
+                type: "multiple",
+                category: "basic",
+                difficulty: "medium",
+                question: "What is cardinality in the relational model?",
+                options: ["Number of attributes", "Number of tuples", "Number of relations", "Number of keys"],
+                correct: 1,
+                explanation: "Cardinality refers to the number of tuples (rows) in a relation."
+            },
+            {
+                id: 10,
+                type: "true_false",
+                category: "basic",
+                difficulty: "medium",
+                statement: "The degree of a relation can change during database operations.",
+                correct: false,
+                explanation: "False. The degree (number of columns) is fixed for a relation, though cardinality can change."
+            },
+            {
+                id: 11,
+                type: "multiple",
+                category: "basic",
+                difficulty: "medium",
+                question: "What is a domain in the relational model?",
+                options: ["A table name", "A set of possible values for an attribute", "A database name", "A user account"],
+                correct: 1,
+                explanation: "A domain is the set of all possible values that an attribute can take."
+            },
+            {
+                id: 12,
+                type: "true_false",
+                category: "basic",
+                difficulty: "medium",
+                statement: "All attributes in a relation must have the same domain.",
+                correct: false,
+                explanation: "False. Different attributes can have different domains appropriate to their data types."
+            },
+            {
+                id: 13,
+                type: "multiple",
+                category: "basic",
+                difficulty: "hard",
+                question: "What is the theoretical minimum degree of a relation?",
+                options: ["0", "1", "2", "3"],
+                correct: 1,
+                explanation: "A relation must have at least one attribute to be meaningful."
+            },
+            {
+                id: 14,
+                type: "multiple",
+                category: "basic",
+                difficulty: "hard",
+                question: "What is the theoretical minimum cardinality of a relation?",
+                options: ["0", "1", "2", "3"],
+                correct: 0,
+                explanation: "A relation can have zero tuples (be empty) and still be a valid relation."
+            },
+            {
+                id: 15,
+                type: "true_false",
+                category: "basic",
+                difficulty: "hard",
+                statement: "A relation with degree 0 is theoretically possible.",
+                correct: false,
+                explanation: "False. A relation must have at least one attribute (degree ≥ 1) to be meaningful."
+            },
+            {
+                id: 16,
+                type: "multiple",
+                category: "basic",
+                difficulty: "medium",
+                question: "What distinguishes the relational model from hierarchical models?",
+                options: ["Faster performance", "Structural independence", "Less storage", "Simpler syntax"],
+                correct: 1,
+                explanation: "The relational model provides structural independence, allowing changes without affecting applications."
+            },
+            {
+                id: 17,
+                type: "true_false",
+                category: "basic",
+                difficulty: "medium",
+                statement: "The relational model was the first database model ever developed.",
+                correct: false,
+                explanation: "False. Hierarchical and network models existed before the relational model."
+            },
+            {
+                id: 18,
+                type: "multiple",
+                category: "basic",
+                difficulty: "medium",
+                question: "What is an entity in database terminology?",
+                options: ["A table", "A person, place, thing, or event", "A column", "A query"],
+                correct: 1,
+                explanation: "An entity is a person, place, thing, or event about which data is collected."
+            },
+            {
+                id: 19,
+                type: "true_false",
+                category: "basic",
+                difficulty: "easy",
+                statement: "In the relational model, relationships are represented by separate tables.",
+                correct: false,
+                explanation: "False. Relationships are typically represented through foreign keys, not separate tables."
+            },
+            {
+                id: 20,
+                type: "multiple",
+                category: "basic",
+                difficulty: "hard",
+                question: "What mathematical concept underlies the relational model?",
+                options: ["Graph theory", "Set theory", "Number theory", "Probability theory"],
+                correct: 1,
+                explanation: "The relational model is based on mathematical set theory and predicate logic."
+            },
+            {
+                id: 21,
+                type: "true_false",
+                category: "basic",
+                difficulty: "medium",
+                statement: "The relational model supports only structured data.",
+                correct: true,
+                explanation: "True. The relational model is designed for structured data organized in tables."
+            },
+            {
+                id: 22,
+                type: "multiple",
+                category: "basic",
+                difficulty: "medium",
+                question: "What is the primary advantage of data independence?",
+                options: ["Faster queries", "Easier maintenance", "Less storage", "Better security"],
+                correct: 1,
+                explanation: "Data independence allows easier maintenance and modification without affecting applications."
+            },
+            {
+                id: 23,
+                type: "true_false",
+                category: "basic",
+                difficulty: "easy",
+                statement: "The relational model requires a specific physical storage format.",
+                correct: false,
+                explanation: "False. The relational model is independent of physical storage implementation."
+            },
+            {
+                id: 24,
+                type: "multiple",
+                category: "basic",
+                difficulty: "medium",
+                question: "What does RDBMS stand for?",
+                options: ["Relational Database Management System", "Rapid Database Management System", "Remote Database Management System", "Real-time Database Management System"],
+                correct: 0,
+                explanation: "RDBMS stands for Relational Database Management System."
+            },
+            {
+                id: 25,
+                type: "true_false",
+                category: "basic",
+                difficulty: "medium",
+                statement: "The relational model eliminates all data redundancy.",
+                correct: false,
+                explanation: "False. While it reduces redundancy, some controlled redundancy may still exist for performance reasons."
+            },
+
+            // Characteristics (26-60)
+            {
+                id: 26,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "easy",
+                statement: "All values in a relational table must be atomic.",
+                correct: true,
+                explanation: "True. The atomic value property requires that each cell contains only indivisible values."
+            },
+            {
+                id: 27,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "easy",
+                question: "What does 'atomic' mean in the context of relational databases?",
+                options: ["Very small", "Cannot be divided further", "Highly reactive", "Automatically generated"],
+                correct: 1,
+                explanation: "Atomic means indivisible - each attribute value cannot be broken down into smaller meaningful parts."
+            },
+            {
+                id: 28,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "easy",
+                statement: "A relation can contain duplicate tuples.",
+                correct: false,
+                explanation: "False. One of the key characteristics of relations is that they cannot contain duplicate tuples."
+            },
+            {
+                id: 29,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "medium",
+                question: "Which characteristic ensures uniqueness of rows?",
+                options: ["Atomic values", "No duplicate tuples", "Column order independence", "Row order independence"],
+                correct: 1,
+                explanation: "The 'no duplicate tuples' characteristic ensures that each row is unique."
+            },
+            {
+                id: 30,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "medium",
+                statement: "The order of rows in a relation affects its meaning.",
+                correct: false,
+                explanation: "False. Relations have row order independence - the order doesn't affect logical meaning."
+            },
+            {
+                id: 31,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "medium",
+                statement: "The order of columns in a relation affects its meaning.",
+                correct: false,
+                explanation: "False. Relations have column order independence - the physical order doesn't matter."
+            },
+            {
+                id: 32,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "medium",
+                question: "What does 'order independence' mean?",
+                options: ["Data can be sorted", "Physical order doesn't affect logical meaning", "Queries can be reordered", "Tables can be created in any order"],
+                correct: 1,
+                explanation: "Order independence means physical arrangement doesn't affect the logical relation."
+            },
+            {
+                id: 33,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "easy",
+                statement: "Each attribute in a relation must have a unique name.",
+                correct: true,
+                explanation: "True. Attribute names must be unique within a single relation to avoid ambiguity."
+            },
+            {
+                id: 34,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "hard",
+                question: "Which is NOT a characteristic of relations?",
+                options: ["Atomic values", "No duplicate rows", "Fixed row order", "Unique column names"],
+                correct: 2,
+                explanation: "Relations do not require a fixed row order - they have order independence."
+            },
+            {
+                id: 35,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "medium",
+                statement: "Null values are allowed in the relational model.",
+                correct: true,
+                explanation: "True. Null values represent unknown or missing data and are allowed in most implementations."
+            },
+            {
+                id: 36,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "medium",
+                question: "What do null values represent?",
+                options: ["Zero", "Empty string", "Unknown or missing data", "Default value"],
+                correct: 2,
+                explanation: "Null values represent unknown, missing, or inapplicable data."
+            },
+            {
+                id: 37,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "hard",
+                statement: "Null values are the same as zero or empty strings.",
+                correct: false,
+                explanation: "False. Null values are distinct from zero, empty strings, or any other value."
+            },
+            {
+                id: 38,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "hard",
+                question: "What happens when you compare null with any value?",
+                options: ["Always true", "Always false", "Unknown/null", "Error"],
+                correct: 2,
+                explanation: "Comparisons with null result in unknown/null, following three-valued logic."
+            },
+            {
+                id: 39,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "medium",
+                statement: "Each cell in a relation can contain multiple values.",
+                correct: false,
+                explanation: "False. The atomic value property requires each cell to contain only one indivisible value."
+            },
+            {
+                id: 40,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "medium",
+                question: "What ensures data consistency in relations?",
+                options: ["Large storage", "Fast processors", "Integrity constraints", "Multiple users"],
+                correct: 2,
+                explanation: "Integrity constraints ensure data consistency and validity in relations."
+            },
+            {
+                id: 41,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "hard",
+                statement: "Relations can have repeating groups of attributes.",
+                correct: false,
+                explanation: "False. Relations cannot have repeating groups - this violates the first normal form."
+            },
+            {
+                id: 42,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "hard",
+                question: "What is the first normal form (1NF) requirement?",
+                options: ["No null values", "Atomic values only", "Unique rows only", "Sorted data only"],
+                correct: 1,
+                explanation: "First normal form requires that all attribute values be atomic (indivisible)."
+            },
+            {
+                id: 43,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "medium",
+                statement: "The logical view and physical view are the same in relational databases.",
+                correct: false,
+                explanation: "False. The logical view (user perspective) is independent of physical storage."
+            },
+            {
+                id: 44,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "medium",
+                question: "What is the logical view in databases?",
+                options: ["Physical storage format", "How users see and interact with data", "Database schema", "Query execution plan"],
+                correct: 1,
+                explanation: "The logical view is how users perceive and interact with data, independent of storage."
+            },
+            {
+                id: 45,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "hard",
+                statement: "Changing the physical storage affects the logical relation.",
+                correct: false,
+                explanation: "False. Physical storage changes don't affect the logical relation due to data independence."
+            },
+            {
+                id: 46,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "hard",
+                question: "What type of independence does the relational model provide?",
+                options: ["Physical only", "Logical only", "Both physical and logical", "Neither"],
+                correct: 2,
+                explanation: "The relational model provides both physical and logical data independence."
+            },
+            {
+                id: 47,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "medium",
+                statement: "Relations must have a predefined maximum number of tuples.",
+                correct: false,
+                explanation: "False. Relations can theoretically contain unlimited tuples (subject to practical constraints)."
+            },
+            {
+                id: 48,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "medium",
+                question: "What makes relations mathematically well-defined?",
+                options: ["Fixed size", "Set-based foundation", "Alphabetical ordering", "Numeric indexing"],
+                correct: 1,
+                explanation: "Relations are mathematically well-defined because they're based on set theory."
+            },
+            {
+                id: 49,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "hard",
+                statement: "Relations support partial information through null values.",
+                correct: true,
+                explanation: "True. Null values allow relations to represent partial or incomplete information."
+            },
+            {
+                id: 50,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "hard",
+                question: "What is closure property in relational algebra?",
+                options: ["Relations are always closed", "Operations on relations produce relations", "Relations cannot be modified", "Relations are self-contained"],
+                correct: 1,
+                explanation: "Closure property means that operations on relations always produce relations as results."
+            },
+            {
+                id: 51,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "medium",
+                statement: "All relations must have the same structure.",
+                correct: false,
+                explanation: "False. Different relations can have different structures (different attributes and degrees)."
+            },
+            {
+                id: 52,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "medium",
+                question: "What ensures that each tuple is uniquely identifiable?",
+                options: ["Row numbers", "Primary key", "Foreign key", "Index"],
+                correct: 1,
+                explanation: "A primary key ensures that each tuple can be uniquely identified."
+            },
+            {
+                id: 53,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "hard",
+                statement: "Relations can exist without any constraints.",
+                correct: false,
+                explanation: "False. Relations inherently have constraints like unique tuples and atomic values."
+            },
+            {
+                id: 54,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "hard",
+                question: "What is referential integrity?",
+                options: ["No null values", "Unique primary keys", "Valid foreign key references", "Atomic values only"],
+                correct: 2,
+                explanation: "Referential integrity ensures that foreign key values reference valid primary key values."
+            },
+            {
+                id: 55,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "medium",
+                statement: "The relational model supports nested relations.",
+                correct: false,
+                explanation: "False. The basic relational model requires flat relations with atomic values."
+            },
+            {
+                id: 56,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "hard",
+                question: "What is domain integrity?",
+                options: ["Unique domains", "Valid attribute values", "Domain independence", "Domain ordering"],
+                correct: 1,
+                explanation: "Domain integrity ensures that attribute values are valid according to their domain constraints."
+            },
+            {
+                id: 57,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "hard",
+                statement: "Relations can have attributes with the same name.",
+                correct: false,
+                explanation: "False. All attribute names within a relation must be unique."
+            },
+            {
+                id: 58,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "medium",
+                question: "What is entity integrity?",
+                options: ["No duplicate entities", "Primary key cannot be null", "Entities must be related", "Entities must be atomic"],
+                correct: 1,
+                explanation: "Entity integrity requires that primary key values cannot be null."
+            },
+            {
+                id: 59,
+                type: "true_false",
+                category: "characteristics",
+                difficulty: "hard",
+                statement: "The relational model allows multivalued attributes.",
+                correct: false,
+                explanation: "False. The relational model requires atomic values, not multivalued attributes."
+            },
+            {
+                id: 60,
+                type: "multiple",
+                category: "characteristics",
+                difficulty: "hard",
+                question: "What distinguishes a relation from a table?",
+                options: ["Relations have constraints", "Tables are physical, relations are logical", "Relations are larger", "No difference"],
+                correct: 1,
+                explanation: "Tables are physical structures, while relations are logical mathematical concepts."
+            },
+
+            // Advanced Topics (61-100)
+            {
+                id: 61,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is a candidate key?",
+                options: ["A potential primary key", "A foreign key candidate", "A key under consideration", "A backup key"],
+                correct: 0,
+                explanation: "A candidate key is an attribute or combination that can uniquely identify tuples."
+            },
+            {
+                id: 62,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "hard",
+                statement: "A relation can have multiple candidate keys.",
+                correct: true,
+                explanation: "True. A relation can have several candidate keys, one of which becomes the primary key."
+            },
+            {
+                id: 63,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is a superkey?",
+                options: ["The most important key", "Any combination that uniquely identifies tuples", "A key with super privileges", "A composite primary key"],
+                correct: 1,
+                explanation: "A superkey is any combination of attributes that uniquely identifies tuples."
+            },
+            {
+                id: 64,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "hard",
+                statement: "Every candidate key is a superkey.",
+                correct: true,
+                explanation: "True. Candidate keys are minimal superkeys - they uniquely identify tuples."
+            },
+            {
+                id: 65,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is a foreign key?",
+                options: ["A key from another database", "An attribute referencing another relation's primary key", "A key in a foreign language", "An external key"],
+                correct: 1,
+                explanation: "A foreign key is an attribute that references the primary key of another relation."
+            },
+            {
+                id: 66,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "medium",
+                statement: "Foreign keys can contain null values.",
+                correct: true,
+                explanation: "True. Foreign keys can be null, representing no relationship or unknown relationship."
+            },
+            {
+                id: 67,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is normalization?",
+                options: ["Making data normal", "Eliminating redundancy and anomalies", "Standardizing formats", "Creating normal forms"],
+                correct: 1,
+                explanation: "Normalization is the process of eliminating redundancy and update anomalies."
+            },
+            {
+                id: 68,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "hard",
+                statement: "Higher normal forms always improve performance.",
+                correct: false,
+                explanation: "False. Higher normalization can sometimes reduce performance due to more joins."
+            },
+            {
+                id: 69,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is denormalization?",
+                options: ["Removing normalization", "Intentionally introducing redundancy for performance", "Making data abnormal", "Reversing normal forms"],
+                correct: 1,
+                explanation: "Denormalization intentionally introduces redundancy to improve query performance."
+            },
+            {
+                id: 70,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "hard",
+                statement: "Functional dependencies determine normalization.",
+                correct: true,
+                explanation: "True. Functional dependencies are the basis for determining normal forms."
+            },
+            {
+                id: 71,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is a functional dependency?",
+                options: ["A function that depends on data", "A relationship where one attribute determines another", "A dependency on functions", "A functional requirement"],
+                correct: 1,
+                explanation: "A functional dependency exists when one attribute uniquely determines another."
+            },
+            {
+                id: 72,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "hard",
+                statement: "Transitive dependencies can cause update anomalies.",
+                correct: true,
+                explanation: "True. Transitive dependencies can lead to update, insert, and delete anomalies."
+            },
+            {
+                id: 73,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is third normal form (3NF)?",
+                options: ["No transitive dependencies", "No partial dependencies", "No multivalued dependencies", "No join dependencies"],
+                correct: 0,
+                explanation: "Third normal form eliminates transitive dependencies on the primary key."
+            },
+            {
+                id: 74,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "hard",
+                statement: "BCNF is stronger than 3NF.",
+                correct: true,
+                explanation: "True. Boyce-Codd Normal Form (BCNF) is a stronger version of 3NF."
+            },
+            {
+                id: 75,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is the purpose of indexes in relational databases?",
+                options: ["Store data", "Improve query performance", "Ensure integrity", "Provide security"],
+                correct: 1,
+                explanation: "Indexes improve query performance by providing faster data access paths."
+            },
+            {
+                id: 76,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "medium",
+                statement: "Indexes are part of the logical relational model.",
+                correct: false,
+                explanation: "False. Indexes are physical implementation details, not part of the logical model."
+            },
+            {
+                id: 77,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is a view in relational databases?",
+                options: ["A way to see data", "A virtual table based on queries", "A database perspective", "A user interface"],
+                correct: 1,
+                explanation: "A view is a virtual table defined by a query, providing a customized data perspective."
+            },
+            {
+                id: 78,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "medium",
+                statement: "Views can be used to provide data security.",
+                correct: true,
+                explanation: "True. Views can restrict access to specific columns or rows, enhancing security."
+            },
+            {
+                id: 79,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is a materialized view?",
+                options: ["A view made of material", "A physically stored view result", "A view with materials", "A concrete view"],
+                correct: 1,
+                explanation: "A materialized view is a view whose results are physically stored for performance."
+            },
+            {
+                id: 80,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "hard",
+                statement: "All views are updatable in relational databases.",
+                correct: false,
+                explanation: "False. Complex views (with joins, aggregates, etc.) are often not updatable."
+            },
+            {
+                id: 81,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is relational algebra?",
+                options: ["Algebra for relations", "Mathematical operations on relations", "Relationship mathematics", "Algebraic relations"],
+                correct: 1,
+                explanation: "Relational algebra is a set of mathematical operations for manipulating relations."
+            },
+            {
+                id: 82,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "hard",
+                statement: "Relational algebra operations always produce relations.",
+                correct: true,
+                explanation: "True. This is the closure property - operations on relations yield relations."
+            },
+            {
+                id: 83,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "Which is NOT a basic relational algebra operation?",
+                options: ["Selection", "Projection", "Join", "Normalization"],
+                correct: 3,
+                explanation: "Normalization is a design process, not a relational algebra operation."
+            },
+            {
+                id: 84,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "hard",
+                statement: "SQL is based on relational algebra and calculus.",
+                correct: true,
+                explanation: "True. SQL combines concepts from both relational algebra and relational calculus."
+            },
+            {
+                id: 85,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is relational calculus?",
+                options: ["Calculus for relations", "A declarative query language", "Mathematical calculations", "Relationship calculations"],
+                correct: 1,
+                explanation: "Relational calculus is a declarative language for specifying what data to retrieve."
+            },
+            {
+                id: 86,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "hard",
+                statement: "Relational algebra is procedural while relational calculus is declarative.",
+                correct: true,
+                explanation: "True. Algebra specifies how to get results, calculus specifies what results to get."
+            },
+            {
+                id: 87,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is query optimization?",
+                options: ["Making queries optimal", "Finding efficient execution plans", "Optimizing query syntax", "Improving query readability"],
+                correct: 1,
+                explanation: "Query optimization finds efficient execution plans for database queries."
+            },
+            {
+                id: 88,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "medium",
+                statement: "Query optimization is transparent to users.",
+                correct: true,
+                explanation: "True. Query optimization happens automatically without user intervention."
+            },
+            {
+                id: 89,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is ACID in database transactions?",
+                options: ["A chemical property", "Atomicity, Consistency, Isolation, Durability", "A database acid test", "Advanced Concurrent Isolation Design"],
+                correct: 1,
+                explanation: "ACID represents the four key properties of database transactions."
+            },
+            {
+                id: 90,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "hard",
+                statement: "The relational model inherently supports ACID properties.",
+                correct: false,
+                explanation: "False. ACID properties are implemented by the DBMS, not inherent to the model."
+            },
+            {
+                id: 91,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is concurrency control?",
+                options: ["Controlling concurrent users", "Managing simultaneous database access", "Controlling concurrency bugs", "Managing concurrent processes"],
+                correct: 1,
+                explanation: "Concurrency control manages simultaneous database access to maintain consistency."
+            },
+            {
+                id: 92,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "hard",
+                statement: "Locking is the only concurrency control mechanism.",
+                correct: false,
+                explanation: "False. Other mechanisms include timestamps, optimistic concurrency control, etc."
+            },
+            {
+                id: 93,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is a database schema?",
+                options: ["A database plan", "The logical structure of a database", "A database scheme", "A database outline"],
+                correct: 1,
+                explanation: "A database schema defines the logical structure and organization of a database."
+            },
+            {
+                id: 94,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "medium",
+                statement: "Schema changes can affect existing applications.",
+                correct: true,
+                explanation: "True. Schema changes can break applications that depend on the old structure."
+            },
+            {
+                id: 95,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is metadata in databases?",
+                options: ["Data about data", "Meta-level data", "Metadata files", "Data beyond data"],
+                correct: 0,
+                explanation: "Metadata is data that describes the structure and properties of other data."
+            },
+            {
+                id: 96,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "hard",
+                statement: "The data dictionary stores metadata.",
+                correct: true,
+                explanation: "True. The data dictionary (system catalog) stores metadata about database objects."
+            },
+            {
+                id: 97,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is database recovery?",
+                options: ["Recovering lost databases", "Restoring database consistency after failures", "Database health recovery", "Recovering database performance"],
+                correct: 1,
+                explanation: "Database recovery restores the database to a consistent state after failures."
+            },
+            {
+                id: 98,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "hard",
+                statement: "Transaction logs are essential for database recovery.",
+                correct: true,
+                explanation: "True. Transaction logs record changes and enable recovery after failures."
+            },
+            {
+                id: 99,
+                type: "multiple",
+                category: "advanced",
+                difficulty: "hard",
+                question: "What is distributed database?",
+                options: ["A database that's distributed", "Data stored across multiple locations", "A database for distribution", "A widely used database"],
+                correct: 1,
+                explanation: "A distributed database stores data across multiple physical locations."
+            },
+            {
+                id: 100,
+                type: "true_false",
+                category: "advanced",
+                difficulty: "hard",
+                statement: "The relational model works well with distributed databases.",
+                correct: true,
+                explanation: "True. The relational model's mathematical foundation supports distributed implementations."
+            }
+        ];
+
+        let answeredQuestions = 0;
+        let correctAnswers = 0;
+        let userAnswers = {};
+        let currentFilter = 'all';
+        let startTime = Date.now();
+        let timeInterval;
+
+        function renderQuestions() {
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '';
+
+            const filteredQuestions = currentFilter === 'all' 
+                ? questions 
+                : questions.filter(q => q.category === currentFilter);
+
+            document.getElementById('totalQuestions').textContent = filteredQuestions.length;
+
+            filteredQuestions.forEach((question, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question-container';
+                questionDiv.id = `question-${question.id}`;
+
+                let optionsHTML = '';
+                
+                if (question.type === 'multiple') {
+                    optionsHTML = question.options.map((option, optionIndex) => 
+                        `<button class="option" onclick="selectAnswer(${question.id}, ${optionIndex})" id="option-${question.id}-${optionIndex}">
+                            ${String.fromCharCode(65 + optionIndex)}. ${option}
+                        </button>`
+                    ).join('');
+                } else if (question.type === 'true_false') {
+                    optionsHTML = `
+                        <div class="true-false-container">
+                            <button class="true-false-option" onclick="selectAnswer(${question.id}, true)" id="option-${question.id}-true">
+                                ✓ TRUE
+                            </button>
+                            <button class="true-false-option" onclick="selectAnswer(${question.id}, false)" id="option-${question.id}-false">
+                                ✗ FALSE
+                            </button>
+                        </div>
+                    `;
+                }
+
+                questionDiv.innerHTML = `
+                    <div class="question-header">
+                        <span class="question-number">Q${question.id}</span>
+                        <div>
+                            <span class="question-type">${question.type.replace('_', ' ')}</span>
+                            <span class="difficulty-indicator difficulty-${question.difficulty}">${question.difficulty}</span>
+                        </div>
+                    </div>
+                    <div class="question-text">
+                        ${question.type === 'true_false' ? question.statement : question.question}
+                    </div>
+                    <div class="options">
+                        ${optionsHTML}
+                    </div>
+                    <button class="check-answer-btn" onclick="checkAnswer(${question.id})" id="check-${question.id}" disabled>
+                        Check Answer
+                    </button>
+                    <div class="feedback" id="feedback-${question.id}">
+                        <div class="feedback-content">
+                            <span class="feedback-icon" id="icon-${question.id}"></span>
+                            <span id="result-${question.id}"></span>
+                        </div>
+                        <div class="explanation" id="explanation-${question.id}"></div>
+                    </div>
+                `;
+
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function filterQuestions(category, element) {
+            currentFilter = category;
+            
+            // Update active nav item
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            element.classList.add('active');
+            
+            // Update gooey blob position
+            const navContainer = document.querySelector('.nav-container');
+            const blob = document.querySelector('.gooey-blob');
+            const navItems = Array.from(document.querySelectorAll('.nav-item'));
+            const activeIndex = navItems.indexOf(element);
+            
+            const itemWidth = element.offsetWidth;
+            const itemLeft = element.offsetLeft;
+            
+            blob.style.width = itemWidth + 'px';
+            blob.style.left = itemLeft + 'px';
+            
+            // Reset stats for new filter
+            answeredQuestions = 0;
+            correctAnswers = 0;
+            userAnswers = {};
+            
+            renderQuestions();
+            updateStats();
+        }
+
+        function selectAnswer(questionId, answer) {
+            userAnswers[questionId] = answer;
+            
+            const question = questions.find(q => q.id === questionId);
+            if (question.type === 'multiple') {
+                question.options.forEach((_, index) => {
+                    const option = document.getElementById(`option-${questionId}-${index}`);
+                    if (option) option.classList.remove('selected');
+                });
+                const selectedOption = document.getElementById(`option-${questionId}-${answer}`);
+                if (selectedOption) selectedOption.classList.add('selected');
+            } else if (question.type === 'true_false') {
+                const trueOption = document.getElementById(`option-${questionId}-true`);
+                const falseOption = document.getElementById(`option-${questionId}-false`);
+                if (trueOption) trueOption.classList.remove('selected');
+                if (falseOption) falseOption.classList.remove('selected');
+                const selectedOption = document.getElementById(`option-${questionId}-${answer}`);
+                if (selectedOption) selectedOption.classList.add('selected');
+            }
+            
+            const checkBtn = document.getElementById(`check-${questionId}`);
+            if (checkBtn) checkBtn.disabled = false;
+        }
+
+        function checkAnswer(questionId) {
+            const question = questions.find(q => q.id === questionId);
+            const userAnswer = userAnswers[questionId];
+            const isCorrect = userAnswer === question.correct;
+            
+            const feedback = document.getElementById(`feedback-${questionId}`);
+            if (feedback && (feedback.style.display === 'none' || !feedback.style.display)) {
+                answeredQuestions++;
+                if (isCorrect) {
+                    correctAnswers++;
+                }
+                updateStats();
+            }
+            
+            // Show feedback
+            const feedbackDiv = document.getElementById(`feedback-${questionId}`);
+            const icon = document.getElementById(`icon-${questionId}`);
+            const result = document.getElementById(`result-${questionId}`);
+            const explanation = document.getElementById(`explanation-${questionId}`);
+            
+            if (feedbackDiv && icon && result && explanation) {
+                feedbackDiv.style.display = 'block';
+                feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                icon.textContent = isCorrect ? '✓' : '✗';
+                result.textContent = isCorrect ? 'Correct!' : 'Incorrect';
+                explanation.textContent = question.explanation;
+            }
+            
+            // Highlight correct/incorrect options
+            if (question.type === 'multiple') {
+                question.options.forEach((_, index) => {
+                    const option = document.getElementById(`option-${questionId}-${index}`);
+                    if (option) {
+                        option.classList.remove('selected');
+                        if (index === question.correct) {
+                            option.classList.add('correct');
+                        } else if (index === userAnswer && !isCorrect) {
+                            option.classList.add('incorrect');
+                        }
+                    }
+                });
+            } else if (question.type === 'true_false') {
+                const trueOption = document.getElementById(`option-${questionId}-true`);
+                const falseOption = document.getElementById(`option-${questionId}-false`);
+                
+                if (trueOption && falseOption) {
+                    trueOption.classList.remove('selected');
+                    falseOption.classList.remove('selected');
+                    
+                    if (question.correct === true) {
+                        trueOption.classList.add('correct');
+                        if (userAnswer === false) {
+                            falseOption.classList.add('incorrect');
+                        }
+                    } else {
+                        falseOption.classList.add('correct');
+                        if (userAnswer === true) {
+                            trueOption.classList.add('incorrect');
+                        }
+                    }
+                }
+            }
+            
+            const checkBtn = document.getElementById(`check-${questionId}`);
+            if (checkBtn) checkBtn.disabled = true;
+            
+            // Check if all visible questions are answered
+            const filteredQuestions = currentFilter === 'all' 
+                ? questions 
+                : questions.filter(q => q.category === currentFilter);
+            
+            const answeredInCategory = filteredQuestions.filter(q => userAnswers[q.id] !== undefined).length;
+            
+            if (answeredInCategory === filteredQuestions.length) {
+                showFinalScore();
+            }
+        }
+
+        function updateStats() {
+            document.getElementById('answeredQuestions').textContent = answeredQuestions;
+            document.getElementById('correctAnswers').textContent = correctAnswers;
+            
+            const accuracy = answeredQuestions > 0 ? Math.round((correctAnswers / answeredQuestions) * 100) : 0;
+            document.getElementById('accuracy').textContent = accuracy + '%';
+            
+            const filteredQuestions = currentFilter === 'all' 
+                ? questions 
+                : questions.filter(q => q.category === currentFilter);
+            
+            const progress = (answeredQuestions / filteredQuestions.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function updateTimer() {
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            document.getElementById('timeSpent').textContent = 
+                `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function showFinalScore() {
+            const filteredQuestions = currentFilter === 'all' 
+                ? questions 
+                : questions.filter(q => q.category === currentFilter);
+            
+            const finalScore = Math.round((correctAnswers / filteredQuestions.length) * 100);
+            document.getElementById('finalScoreNumber').textContent = finalScore + '%';
+            
+            let message = '';
+            if (finalScore >= 90) message = 'Outstanding! Excellent mastery! 🏆';
+            else if (finalScore >= 80) message = 'Great job! Very good understanding! 🎉';
+            else if (finalScore >= 70) message = 'Good work! Solid foundation! 👍';
+            else if (finalScore >= 60) message = 'Fair performance. Keep studying! 📚';
+            else message = 'Need more practice. Review the material! 💪';
+            
+            document.getElementById('scoreMessage').textContent = message;
+            document.getElementById('finalScore').style.display = 'block';
+            
+            document.getElementById('finalScore').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function shareOnWhatsApp() {
+            const filteredQuestions = currentFilter === 'all' 
+                ? questions 
+                : questions.filter(q => q.category === currentFilter);
+            
+            const finalScore = Math.round((correctAnswers / filteredQuestions.length) * 100);
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            const timeSpent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            const categoryName = currentFilter === 'all' ? 'All Questions' : 
+                                currentFilter === 'basic' ? 'Basic Concepts' :
+                                currentFilter === 'characteristics' ? 'Characteristics' : 'Advanced Topics';
+            
+            const message = `🎯 Chapter 3 Quiz Results 🎯
+
+📊 Category: ${categoryName}
+✅ Score: ${finalScore}% (${correctAnswers}/${filteredQuestions.length})
+⏱️ Time: ${timeSpent}
+📚 Subject: Relational Model
+
+${finalScore >= 90 ? '🏆 Outstanding!' : 
+  finalScore >= 80 ? '🎉 Great job!' : 
+  finalScore >= 70 ? '👍 Good work!' : 
+  finalScore >= 60 ? '📚 Keep studying!' : '💪 Need more practice!'}
+
+#DatabaseQuiz #RelationalModel #Chapter3`;
+
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function resetQuiz() {
+            answeredQuestions = 0;
+            correctAnswers = 0;
+            userAnswers = {};
+            startTime = Date.now();
+            
+            updateStats();
+            document.getElementById('finalScore').style.display = 'none';
+            
+            // Reset all questions
+            questions.forEach(question => {
+                const feedback = document.getElementById(`feedback-${question.id}`);
+                if (feedback) feedback.style.display = 'none';
+                
+                const checkBtn = document.getElementById(`check-${question.id}`);
+                if (checkBtn) checkBtn.disabled = true;
+                
+                if (question.type === 'multiple') {
+                    question.options.forEach((_, index) => {
+                        const option = document.getElementById(`option-${question.id}-${index}`);
+                        if (option) option.className = 'option';
+                    });
+                } else if (question.type === 'true_false') {
+                    const trueOption = document.getElementById(`option-${question.id}-true`);
+                    const falseOption = document.getElementById(`option-${question.id}-false`);
+                    if (trueOption) trueOption.className = 'true-false-option';
+                    if (falseOption) falseOption.className = 'true-false-option';
+                }
+            });
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderQuestions();
+            updateStats();
+            timeInterval = setInterval(updateTimer, 1000);
+            
+            // Initialize gooey blob position
+            const firstNavItem = document.querySelector('.nav-item.active');
+            if (firstNavItem) {
+                const blob = document.querySelector('.gooey-blob');
+                blob.style.width = firstNavItem.offsetWidth + 'px';
+                blob.style.left = firstNavItem.offsetLeft + 'px';
+            }
+        });
+    </script>
+</body>
+</html>
